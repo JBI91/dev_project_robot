@@ -1,4 +1,4 @@
-# README
+# CONTAINER PARA ENTORNO DE DESARROLLO ROS 2 JAZZY 
 
 # Instalación del DevContainer
 
