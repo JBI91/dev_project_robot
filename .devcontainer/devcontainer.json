@@ -1,0 +1,33 @@
+{
+  "name": "ros2-jazzy-dev",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+ "runArgs": [
+    "--net=host",
+    "--privileged",
+    "--env", "DISPLAY=${env:DISPLAY}",
+    "--volume", "/tmp/.X11-unix:/tmp/.X11-unix:rw",
+    "--device", "/dev/input/js0"
+  ],
+  "containerEnv": {
+    "QT_X11_NO_MITSHM": "1"
+  },
+  "remoteUser": "rosuser",
+  "workspaceFolder": "/workspace",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-iot.vscode-ros",
+        "ms-python.python"
+      ],
+        "settings": {
+        "ros.distro": "jazzy",
+        "ros.workspace": "/workspace/project_ros2_robot1",
+        "ros.pythonPath": "/opt/ros/jazzy/bin/python3"
+      }
+    }
+  },
+  "postCreateCommand": "git clone https://github.com/JBI91/project_ros2_robot1.git && sudo apt install -y ros-jazzy-xacro"
+}
